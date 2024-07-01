@@ -7,7 +7,7 @@ with the `Phoenix` framework. The application visualizes personal finance data s
 The application follows all the best practices for scaling and heavy use of distributed systems architecture.
 
 ## Requirements
-You nee `erlang` and `elixir` installed. If you are on `NixOS`, you can run the following command to access
+You need `erlang` and `elixir` installed. If you are on `NixOS`, you can run the following command to access
 the developement environment:
 ```bash
 nix develop
@@ -39,3 +39,7 @@ You can acces the web app by connecting to:
 ```
 http://localhost:4000
 ```
+
+# TODO
+
+https://hexdocs.pm/phoenix/plug.html

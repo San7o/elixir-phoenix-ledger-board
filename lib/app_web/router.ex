@@ -14,10 +14,13 @@ defmodule AppWeb.Router do
     plug :accepts, ["json"]
   end
 
+  # dispatch requests to the appropriate controller
   scope "/", AppWeb do
     pipe_through :browser
 
     get "/", PageController, :home
+    get "/hello", HelloController, :index
+    get "/hello/:messenger", HelloController, :show
   end
 
   # Other scopes may use custom stacks.
