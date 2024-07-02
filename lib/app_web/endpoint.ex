@@ -49,5 +49,23 @@ defmodule AppWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
+
+  # Example custom plug
+  # - conn: %Plug.Conn{}
+  # - opts: [any]
+  # - return: %Plug.Conn{}
+  def introspect(conn, _opts) do
+    IO.puts """
+    Verb: #{inspect conn.method}
+    Host: #{inspect conn.host}
+    Headers: #{inspect conn.req_headers}
+    """
+
+    conn
+  end
+
+  # Add the introspect plug to the pipeline
+  # plug :introspect
+
   plug AppWeb.Router
 end

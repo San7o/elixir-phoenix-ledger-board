@@ -1,13 +1,16 @@
 defmodule AppWeb.Router do
   use AppWeb, :router
 
+  # In routers, we can define plugs in pipelines
   pipeline :browser do
-    plug :accepts, ["html"]
+    plug :accepts, ["html", "json"]
     plug :fetch_session
     plug :fetch_live_flash
     plug :put_root_layout, html: {AppWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    # Example module plug
+    plug AppWeb.Plugs.Locale, "en"
   end
 
   pipeline :api do
@@ -21,6 +24,12 @@ defmodule AppWeb.Router do
     get "/", PageController, :home
     get "/hello", HelloController, :index
     get "/hello/:messenger", HelloController, :show
+    get "/redirect_test", PageController, :redirect_test
+
+    # Resources expand to multiple RESTful routes
+    # resources "/users", UserController
+    
+    # Routes can be nested through scopes
   end
 
   # Other scopes may use custom stacks.

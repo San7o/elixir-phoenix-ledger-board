@@ -42,4 +42,8 @@ http://localhost:4000
 
 # TODO
 
-https://hexdocs.pm/phoenix/plug.html
+Official Documentation:
+https://hexdocs.pm/phoenix/ecto.html
+
+Live view:
+https://hexdocs.pm/phoenix_live_view/welcome.html#what-is-a-liveview
